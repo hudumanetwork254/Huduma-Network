@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huduma Network</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #1d2671, #c33764); /* Flicker Argo vibe */
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .search-box {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    input, select {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      min-width: 200px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      background: #ff9800;
+      color: #fff;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #e68900;
+    }
+
+    .cta {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta button {
+      background: #3ed111;
+    }
+
+    .cta button:hover {
+      background: #3e8e41;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<nav style="width:100%; background:#111; padding:10px 20px; position:fixed; top:0; left:0; display:flex; justify-content:space-between; align-items:center; z-index:100;">
+  
+  <!-- Left side (empty for now) -->
+  <div style="flex:1;">
+    <!-- You can add 'Menu' or social icons here later -->
+  </div>
+
+  <!-- Right side links -->
+  <div style="flex:1; text-align:right;">
+    <a href="#about" style="color:#fff; margin:0 15px; text-decoration:none; font-weight:500;">About Us</a>
+    <a href="#help" style="color:#fff; margin:0 15px; text-decoration:none; font-weight:500;">Help Center</a>
+  </div>
+</nav>
+<body>
+
+  <header>
+    <h1 style="color: #0fd33d;">Huduma Network</h1>
+    <p>Connecting You to Trusted Service Providers</p>
+<img src="images/greenlogo.jpg" alt="Huduma Network Logo" style="height:299px; width:auto;" class="center-logo">
+
+  </header>
+
+  <section class="hero">
+    <h2>Find the Right Service, Anytime, Anywhere</h2>
+    <div class="search-box">
+      <input type="text" placeholder="What service do you need?">
+      <select>
+        <option value="">Select Category</option>
+        <option>Cleaner</option>
+        <option>Gardener</option>
+        <option>Security</option>
+        <option>Cyber Service</option>
+        <optgroup label="IT Support">
+    <option>Computer Repair</option>
+    <option>Network Setup</option>
+    <option>Software Installation</option>
+  </optgroup>
+        <option>Repair</option>
+        <option>Plumber</option>
+        <option>Electrician</option>
+        <option>Painter</option>
+        <option>Carpenter</option>
+        <option>Welder</option>
+        <option>Chef</option>
+        <option>Tutor</option>
+        <option>Movers</option>
+        <option>Event Organizer</option>
+        <option>Business</option>
+        <optgroup label="Entertainment">
+    <option>Games</option>
+    <option>Movies</option>
+    <option>Jamsession</option>
+  </optgroup>
+  <optgroup label="Street Food">
+    <option>Drinks & Beverages</option>
+    <option>Kibandaski</option>
+    <option>Fastfood & Junk</option>
+    <option>Sudgested</option>
+  </optgroup>
+  <optgroup label="Adventure">
+    <option>Hicking</option>
+    <option>Cycling</option>
+    <option>Sudgested</option>
+  </optgroup>
+   <optgroup label="Games and Sports">
+    <option>Coaching</option>
+    <option>Tournaments</option>
+    <option>Teamwork</option>
+  </optgroup>
+        
+      </select>
+      </select>
+      </select>
+      <button>Search</button>
+    </div>
+
+    <div class="cta">
+      <button>I Need a Service</button>
+      <button>I Provide a Service</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+<footer style="width:100%; background:#111; color:#fff; text-align:center; padding:15px 10px; position:fixed; bottom:0; left:0; font-size:14px;">
+  <p>&copy; 2025 Huduma Network | All Rights Reserved</p>
+</footer>
+
+
+</body>
+</html>
+
+
+
