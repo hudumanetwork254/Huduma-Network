@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provider Signup - Huduma Network</title>
+  <style>
+    body {font-family:Arial, sans-serif; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh; margin:0;}
+    .form-container {background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.2); width:100%; max-width:400px;}
+    h2 {text-align:center; margin-bottom:20px; color:#c33764;}
+    label {display:block; margin-top:10px; font-weight:bold;}
+    input, select {width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;}
+    button {width:100%; padding:12px; margin-top:20px; border:none; border-radius:8px; background:#007bff; color:#fff; font-size:16px; font-weight:bold; cursor:pointer;}
+    button:hover {background:#0056b3;}
+    .back {display:block; margin-top:15px; text-align:center;}
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Provider Signup</h2>
+    <form>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+      <label for="service">Service Category</label>
+      <select id="service" required>
+        <option value="">Select Service</option>
+        <option>Plumber</option>
+        <option>Electrician</option>
+        <option>Carpenter</option>
+        <option>Cleaner</option>
+        <option>Gardener</option>
+        <option>Tutor</option>
+        <option>Chef</option>
+      </select>
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <a href="index.html" class="back">← Back to Home</a>
+  </div>
+</body>
+</html>
