@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plumbing Services | Huduma Network</title>
+  <title>Electrician Services | Huduma Network</title>
 
   <style>
     :root {
-      --primary: #007bff;
-      --secondary: #00bcd4;
-      --bg-light: #f4f9ff;
-      --text-dark: #222;
+      --primary: #ffb400;
+      --secondary: #ff9500;
+      --dark-bg: #121212;
+      --card-bg: #1e1e1e;
+      --text-light: #f5f5f5;
       --radius: 14px;
-      --shadow: 0 0 15px rgba(0,123,255,0.2);
+      --shadow: 0 0 15px rgba(255,180,0,0.2);
     }
 
     * {
@@ -23,14 +24,14 @@
     }
 
     body {
-      background: var(--bg-light);
-      color: var(--text-dark);
+      background: var(--dark-bg);
+      color: var(--text-light);
       line-height: 1.6;
     }
 
     nav {
       width: 100%;
-      background: var(--primary);
+      background: #000;
       padding: 15px 25px;
       position: fixed;
       top: 0;
@@ -39,22 +40,22 @@
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(255,180,0,0.2);
     }
 
     nav a {
-      color: #fff;
+      color: var(--text-light);
       margin: 0 15px;
       text-decoration: none;
       font-weight: 500;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: var(--primary);
     }
 
     header {
-      background: linear-gradient(rgba(0,0,50,0.5), rgba(0,0,100,0.6)), url('images/plumber-bg.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/electrician-bg.jpg') center/cover no-repeat;
       color: #fff;
       text-align: center;
       padding: 140px 20px 100px;
@@ -62,9 +63,9 @@
 
     header h1 {
       font-size: 2.6rem;
-      color: #fff;
+      color: var(--primary);
       margin-bottom: 10px;
-      text-shadow: 0 0 15px rgba(255,255,255,0.4);
+      text-shadow: 0 0 15px rgba(255,180,0,0.5);
     }
 
     header p {
@@ -92,7 +93,7 @@
     }
 
     .overview p {
-      color: #444;
+      color: #ddd;
       font-size: 1rem;
       max-width: 800px;
       margin: 0 auto;
@@ -105,7 +106,7 @@
     }
 
     .service-card {
-      background: #fff;
+      background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 25px;
@@ -115,14 +116,14 @@
 
     .service-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(0,123,255,0.3);
+      box-shadow: 0 0 25px rgba(255,180,0,0.4);
     }
 
     .service-card img {
       width: 90px;
       height: 90px;
       margin-bottom: 15px;
-      filter: drop-shadow(0 0 8px rgba(0,123,255,0.2));
+      filter: drop-shadow(0 0 8px rgba(255,180,0,0.3));
     }
 
     .service-card h3 {
@@ -132,17 +133,17 @@
     }
 
     .service-card p {
-      color: #555;
+      color: #ccc;
       font-size: 0.95rem;
     }
 
     .ad-space {
-      background: rgba(0,123,255,0.05);
+      background: rgba(255,180,0,0.05);
       border: 2px dashed var(--primary);
       border-radius: var(--radius);
       padding: 30px;
       text-align: center;
-      color: #333;
+      color: #ddd;
       margin: 70px 0;
     }
 
@@ -181,8 +182,8 @@
 
 
     footer {
-      background: var(--primary);
-      color: #fff;
+      background: #000;
+      color: #888;
       text-align: center;
       padding: 15px;
       font-size: 0.9rem;
@@ -193,7 +194,7 @@
 
 <body>
   <nav>
-    <div><h2>Huduma Network</h2></div>
+    <div><h2 style="color: var(--primary);">Huduma Network</h2></div>
     <div>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
@@ -202,57 +203,56 @@
   </nav>
 
   <header>
-    <h1>Professional Plumbing Services</h1>
-    <p>Reliable plumbing experts ready to fix leaks, install systems, and keep your water flowing right.</p>
+    <h1>Expert Electrical Services</h1>
+    <p>Power up your home or business with trusted electricians who ensure safety, efficiency, and brilliance in every connection.</p>
   </header>
 
   <section class="overview">
-    <h2>Trusted by Homes & Businesses</h2>
-    <p>Whether it’s emergency repair, pipe installation, or maintenance, our professionals deliver fast, clean, and affordable plumbing solutions across the country.</p>
+    <h2>Lighting Up Every Home & Industry</h2>
+    <p>From installations to maintenance, our certified electricians handle residential and commercial electrical work with precision and care.</p>
   </section>
 
   <section class="service-grid">
     <div class="service-card">
-      <img src="images/pipe-fix.png" alt="Pipe Fixing">
-      <h3>Pipe Repair</h3>
-      <p>Fixing leaks, blockages, and broken pipes with precision and care.</p>
+      <img src="images/electrical-wiring.png" alt="Electrical Wiring">
+      <h3>Wiring & Installation</h3>
+      <p>Safe, efficient wiring for homes, offices, and industries by licensed electricians.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/drain-clean.png" alt="Drain Cleaning">
-      <h3>Drain Cleaning</h3>
-      <p>Unclog drains efficiently to restore smooth water flow in your home or business.</p>
+      <img src="images/power-fix.png" alt="Power Restoration">
+      <h3>Power Restoration</h3>
+      <p>Emergency response for outages, short circuits, and electrical system failures.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/water-heater.png" alt="Water Heater">
-      <h3>Water Heater Installation</h3>
-      <p>Installation and repair of water heaters for energy-efficient hot water systems.</p>
+      <img src="images/lighting.png" alt="Lighting Installation">
+      <h3>Lighting Design</h3>
+      <p>Stylish and energy-efficient lighting setups to brighten up every space.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/bathroom-fix.png" alt="Bathroom Installation">
-      <h3>Bathroom Installation</h3>
-      <p>Complete bathroom plumbing solutions — from faucets to full renovations.</p>
+      <img src="images/safety-check.png" alt="Safety Inspection">
+      <h3>Safety Inspections</h3>
+      <p>Comprehensive checks to ensure your wiring and devices meet safety standards.</p>
     </div>
   </section>
 
   <div class="ad-space">
-    <p><strong>Advertise Your Brand Here!</strong> Perfect for plumbing stores, hardware suppliers, or service franchises looking to reach new clients.</p>
+    <p><strong>Advertise Here ⚡</strong> — Perfect for electrical stores, lighting brands, or training institutes.</p>
   </div>
 
   <div class="cta">
-  <a href="signup-provider.html">Join as Plumber</a>
+  <a href="signup-provider.html">Join as Electrician</a>
   <span>or</span>
   <a href="signup-user.html" style="background: var(--secondary); color:#000;">
-    Request plumbing Service
+    Request Electrical Service
   </a>
 </div>
 
 
   <footer>
-    &copy; 2025 Huduma Network | Your Water. Our Responsibility.
+    &copy; 2025 Huduma Network | Brightening Lives with Every Connection ⚡
   </footer>
 </body>
 </html>
-

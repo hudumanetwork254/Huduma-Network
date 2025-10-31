@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plumbing Services | Huduma Network</title>
+  <title>Cyber Services | Huduma Network</title>
 
   <style>
     :root {
-      --primary: #007bff;
-      --secondary: #00bcd4;
-      --bg-light: #f4f9ff;
-      --text-dark: #222;
+      --accent: #00ffc8;
+      --accent-dark: #00bfa6;
+      --bg-dark: #0c0f1a;
+      --bg-card: #12172a;
+      --text-light: #d8d8d8;
+      --shadow: 0 0 15px rgba(0,255,200,0.2);
       --radius: 14px;
-      --shadow: 0 0 15px rgba(0,123,255,0.2);
     }
 
     * {
@@ -23,14 +24,14 @@
     }
 
     body {
-      background: var(--bg-light);
-      color: var(--text-dark);
+      background: var(--bg-dark);
+      color: var(--text-light);
       line-height: 1.6;
     }
 
     nav {
       width: 100%;
-      background: var(--primary);
+      background: rgba(10,10,20,0.9);
       padding: 15px 25px;
       position: fixed;
       top: 0;
@@ -39,7 +40,8 @@
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
     }
 
     nav a {
@@ -50,28 +52,28 @@
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--accent);
     }
 
     header {
-      background: linear-gradient(rgba(0,0,50,0.5), rgba(0,0,100,0.6)), url('images/plumber-bg.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('images/cyber-bg.jpg') center/cover no-repeat;
       color: #fff;
       text-align: center;
       padding: 140px 20px 100px;
+      box-shadow: inset 0 0 60px rgba(0,255,200,0.1);
     }
 
     header h1 {
-      font-size: 2.6rem;
-      color: #fff;
-      margin-bottom: 10px;
-      text-shadow: 0 0 15px rgba(255,255,255,0.4);
+      font-size: 2.8rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      text-shadow: 0 0 15px var(--accent);
     }
 
     header p {
       font-size: 1.1rem;
       opacity: 0.9;
-      max-width: 700px;
-      margin: 0 auto;
     }
 
     section {
@@ -82,17 +84,18 @@
 
     .overview {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 70px;
     }
 
     .overview h2 {
-      color: var(--primary);
-      margin-bottom: 12px;
+      color: var(--accent);
+      margin-bottom: 15px;
       font-size: 1.8rem;
+      text-shadow: 0 0 10px var(--accent);
     }
 
     .overview p {
-      color: #444;
+      color: #bbb;
       font-size: 1rem;
       max-width: 800px;
       margin: 0 auto;
@@ -105,7 +108,7 @@
     }
 
     .service-card {
-      background: #fff;
+      background: var(--bg-card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 25px;
@@ -115,34 +118,34 @@
 
     .service-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(0,123,255,0.3);
+      box-shadow: 0 0 25px rgba(0,255,200,0.3);
     }
 
     .service-card img {
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       margin-bottom: 15px;
-      filter: drop-shadow(0 0 8px rgba(0,123,255,0.2));
+      filter: drop-shadow(0 0 8px var(--accent));
     }
 
     .service-card h3 {
-      color: var(--primary);
+      color: var(--accent);
       margin-bottom: 8px;
       font-size: 1.1rem;
     }
 
     .service-card p {
-      color: #555;
+      color: #ccc;
       font-size: 0.95rem;
     }
 
     .ad-space {
-      background: rgba(0,123,255,0.05);
-      border: 2px dashed var(--primary);
+      background: rgba(0,255,200,0.05);
+      border: 2px dashed var(--accent);
       border-radius: var(--radius);
       padding: 30px;
       text-align: center;
-      color: #333;
+      color: #aaa;
       margin: 70px 0;
     }
 
@@ -181,19 +184,19 @@
 
 
     footer {
-      background: var(--primary);
-      color: #fff;
+      background: #090b12;
+      color: #888;
       text-align: center;
       padding: 15px;
       font-size: 0.9rem;
-      margin-top: 60px;
+      border-top: 1px solid rgba(0,255,200,0.2);
     }
   </style>
 </head>
 
 <body>
   <nav>
-    <div><h2>Huduma Network</h2></div>
+    <div><h2 style="color: var(--accent);">Huduma Network</h2></div>
     <div>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
@@ -202,57 +205,56 @@
   </nav>
 
   <header>
-    <h1>Professional Plumbing Services</h1>
-    <p>Reliable plumbing experts ready to fix leaks, install systems, and keep your water flowing right.</p>
+    <h1>Cyber Services & IT Solutions</h1>
+    <p>Empowering your digital world — from cybersecurity to computer repair and IT support.</p>
   </header>
 
   <section class="overview">
-    <h2>Trusted by Homes & Businesses</h2>
-    <p>Whether it’s emergency repair, pipe installation, or maintenance, our professionals deliver fast, clean, and affordable plumbing solutions across the country.</p>
+    <h2>Smart, Secure & Connected</h2>
+    <p>We bridge the gap between technology and convenience. Our cyber experts provide data protection, software repair, and network optimization to keep you secure and productive in the digital age.</p>
   </section>
 
   <section class="service-grid">
     <div class="service-card">
-      <img src="images/pipe-fix.png" alt="Pipe Fixing">
-      <h3>Pipe Repair</h3>
-      <p>Fixing leaks, blockages, and broken pipes with precision and care.</p>
+      <img src="images/cyber1.png" alt="Cybersecurity">
+      <h3>Cybersecurity</h3>
+      <p>Protect your systems and data with advanced threat monitoring, encryption, and security audits.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/drain-clean.png" alt="Drain Cleaning">
-      <h3>Drain Cleaning</h3>
-      <p>Unclog drains efficiently to restore smooth water flow in your home or business.</p>
+      <img src="images/cyber2.png" alt="Computer Repair">
+      <h3>Computer Repair</h3>
+      <p>Expert diagnostics and repairs for laptops, PCs, and peripherals — fast and affordable.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/water-heater.png" alt="Water Heater">
-      <h3>Water Heater Installation</h3>
-      <p>Installation and repair of water heaters for energy-efficient hot water systems.</p>
+      <img src="images/cyber3.png" alt="Network Setup">
+      <h3>Network Setup</h3>
+      <p>Reliable Wi-Fi, LAN, and office network configuration for smooth connectivity and productivity.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/bathroom-fix.png" alt="Bathroom Installation">
-      <h3>Bathroom Installation</h3>
-      <p>Complete bathroom plumbing solutions — from faucets to full renovations.</p>
+      <img src="images/cyber4.png" alt="Software Support">
+      <h3>Software & Updates</h3>
+      <p>Get professional installation, troubleshooting, and licensing support for your software systems.</p>
     </div>
   </section>
 
   <div class="ad-space">
-    <p><strong>Advertise Your Brand Here!</strong> Perfect for plumbing stores, hardware suppliers, or service franchises looking to reach new clients.</p>
+    <p><strong>Advertise your Tech Brand!</strong> Promote your software, devices, or tech events here. Reach thousands of digital users across Huduma Network.</p>
   </div>
 
   <div class="cta">
-  <a href="signup-provider.html">Join as Plumber</a>
+  <a href="signup-provider.html">Join as Digital Assistant</a>
   <span>or</span>
   <a href="signup-user.html" style="background: var(--secondary); color:#000;">
-    Request plumbing Service
+    Request Cyber Service
   </a>
 </div>
 
 
   <footer>
-    &copy; 2025 Huduma Network | Your Water. Our Responsibility.
+    &copy; 2025 Huduma Network | Powering Your Digital Life Securely.
   </footer>
 </body>
 </html>
-

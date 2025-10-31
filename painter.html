@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plumbing Services | Huduma Network</title>
+  <title>Painter Services | Huduma Network</title>
 
   <style>
     :root {
-      --primary: #007bff;
-      --secondary: #00bcd4;
-      --bg-light: #f4f9ff;
-      --text-dark: #222;
+      --primary: #ff6f61;
+      --secondary: #ffa726;
+      --bg-dark: #1b1b1b;
+      --bg-card: #262626;
+      --text-light: #f9f9f9;
       --radius: 14px;
-      --shadow: 0 0 15px rgba(0,123,255,0.2);
+      --shadow: 0 0 20px rgba(255,111,97,0.3);
     }
 
     * {
@@ -23,14 +24,14 @@
     }
 
     body {
-      background: var(--bg-light);
-      color: var(--text-dark);
+      background: var(--bg-dark);
+      color: var(--text-light);
       line-height: 1.6;
     }
 
     nav {
       width: 100%;
-      background: var(--primary);
+      background: #000;
       padding: 15px 25px;
       position: fixed;
       top: 0;
@@ -39,39 +40,40 @@
       justify-content: space-between;
       align-items: center;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(255,111,97,0.3);
     }
 
     nav a {
-      color: #fff;
+      color: var(--text-light);
       margin: 0 15px;
       text-decoration: none;
       font-weight: 500;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: var(--primary);
     }
 
     header {
-      background: linear-gradient(rgba(0,0,50,0.5), rgba(0,0,100,0.6)), url('images/plumber-bg.jpg') center/cover no-repeat;
-      color: #fff;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(27,27,27,0.8)),
+        url('images/painter-bg.jpg') center/cover no-repeat;
       text-align: center;
       padding: 140px 20px 100px;
     }
 
     header h1 {
       font-size: 2.6rem;
-      color: #fff;
+      color: var(--primary);
       margin-bottom: 10px;
-      text-shadow: 0 0 15px rgba(255,255,255,0.4);
+      text-shadow: 0 0 15px rgba(255,111,97,0.5);
     }
 
     header p {
       font-size: 1.1rem;
-      opacity: 0.9;
       max-width: 700px;
       margin: 0 auto;
+      color: #f0f0f0;
+      opacity: 0.9;
     }
 
     section {
@@ -92,7 +94,7 @@
     }
 
     .overview p {
-      color: #444;
+      color: #ddd;
       font-size: 1rem;
       max-width: 800px;
       margin: 0 auto;
@@ -105,7 +107,7 @@
     }
 
     .service-card {
-      background: #fff;
+      background: var(--bg-card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 25px;
@@ -115,14 +117,16 @@
 
     .service-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(0,123,255,0.3);
+      box-shadow: 0 0 25px rgba(255,111,97,0.5);
     }
 
     .service-card img {
       width: 90px;
       height: 90px;
       margin-bottom: 15px;
-      filter: drop-shadow(0 0 8px rgba(0,123,255,0.2));
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      background: #fff;
     }
 
     .service-card h3 {
@@ -132,17 +136,17 @@
     }
 
     .service-card p {
-      color: #555;
+      color: #ccc;
       font-size: 0.95rem;
     }
 
     .ad-space {
-      background: rgba(0,123,255,0.05);
+      background: rgba(255,111,97,0.08);
       border: 2px dashed var(--primary);
       border-radius: var(--radius);
       padding: 30px;
       text-align: center;
-      color: #333;
+      color: #ddd;
       margin: 70px 0;
     }
 
@@ -181,8 +185,8 @@
 
 
     footer {
-      background: var(--primary);
-      color: #fff;
+      background: #000;
+      color: #888;
       text-align: center;
       padding: 15px;
       font-size: 0.9rem;
@@ -193,7 +197,7 @@
 
 <body>
   <nav>
-    <div><h2>Huduma Network</h2></div>
+    <div><h2 style="color: var(--primary);">Huduma Network</h2></div>
     <div>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
@@ -202,57 +206,56 @@
   </nav>
 
   <header>
-    <h1>Professional Plumbing Services</h1>
-    <p>Reliable plumbing experts ready to fix leaks, install systems, and keep your water flowing right.</p>
+    <h1>Professional Painting Services</h1>
+    <p>Transform your spaces with a splash of color and artistry — from homes to offices, our painters bring creativity and precision to every brushstroke.</p>
   </header>
 
   <section class="overview">
-    <h2>Trusted by Homes & Businesses</h2>
-    <p>Whether it’s emergency repair, pipe installation, or maintenance, our professionals deliver fast, clean, and affordable plumbing solutions across the country.</p>
+    <h2>Color Your World with Expertise</h2>
+    <p>Our painters are skilled in both interior and exterior finishes, ensuring lasting beauty and professional results. Whether it’s a modern touch or a classic look, we’ve got you covered.</p>
   </section>
 
   <section class="service-grid">
     <div class="service-card">
-      <img src="images/pipe-fix.png" alt="Pipe Fixing">
-      <h3>Pipe Repair</h3>
-      <p>Fixing leaks, blockages, and broken pipes with precision and care.</p>
+      <img src="images/interior-paint.png" alt="Interior Painting">
+      <h3>Interior Painting</h3>
+      <p>From bedrooms to living rooms, we deliver smooth finishes and vibrant shades to elevate your interior spaces.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/drain-clean.png" alt="Drain Cleaning">
-      <h3>Drain Cleaning</h3>
-      <p>Unclog drains efficiently to restore smooth water flow in your home or business.</p>
+      <img src="images/exterior-paint.png" alt="Exterior Painting">
+      <h3>Exterior Painting</h3>
+      <p>Protect and beautify your property with weather-resistant paints and flawless application.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/water-heater.png" alt="Water Heater">
-      <h3>Water Heater Installation</h3>
-      <p>Installation and repair of water heaters for energy-efficient hot water systems.</p>
+      <img src="images/decorative-paint.png" alt="Decorative Art">
+      <h3>Decorative & Art Finishes</h3>
+      <p>Murals, texture, and creative finishes that turn walls into works of art.</p>
     </div>
 
     <div class="service-card">
-      <img src="images/bathroom-fix.png" alt="Bathroom Installation">
-      <h3>Bathroom Installation</h3>
-      <p>Complete bathroom plumbing solutions — from faucets to full renovations.</p>
+      <img src="images/renovation.png" alt="Renovation">
+      <h3>Home Makeovers</h3>
+      <p>Complete repainting and restoration for renewed beauty and modern appeal.</p>
     </div>
   </section>
 
   <div class="ad-space">
-    <p><strong>Advertise Your Brand Here!</strong> Perfect for plumbing stores, hardware suppliers, or service franchises looking to reach new clients.</p>
+    <p><strong>Advertise Here 🎨</strong> — Ideal for paint brands, hardware stores, or artistic decor businesses.</p>
   </div>
 
   <div class="cta">
-  <a href="signup-provider.html">Join as Plumber</a>
+  <a href="signup-provider.html">Join as Painter</a>
   <span>or</span>
   <a href="signup-user.html" style="background: var(--secondary); color:#000;">
-    Request plumbing Service
+    Request Painting Service
   </a>
 </div>
 
 
   <footer>
-    &copy; 2025 Huduma Network | Your Water. Our Responsibility.
+    &copy; 2025 Huduma Network | Painting the Nation, One Wall at a Time 🎨
   </footer>
 </body>
 </html>
-

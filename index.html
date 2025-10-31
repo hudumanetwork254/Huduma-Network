@@ -5,68 +5,237 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Huduma Network</title>
   <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: linear-gradient(135deg, #1d2671, #c33764);
-      color: #fff;
-      scroll-behavior: smooth;
-    }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    color: #fff;
+    scroll-behavior: smooth;
+  }
 
-    nav {
-      width:100%; background:#111; padding:10px 20px;
-      position:fixed; top:0; left:0; display:flex; justify-content:space-between; align-items:center; z-index:100;
-    }
+  /* NAVIGATION BAR */
+  nav {
+    width: 100%;
+    background: #111;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
 
-    nav a {color:#fff; margin:0 15px; text-decoration:none; font-weight:500;}
-    nav a:hover {color:#3ed111;}
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
 
-    header {text-align:center; padding:120px 20px 40px;}
-    header h1 {font-size:2.5rem; font-weight:bold; color:#3ed111;}
-    header p {margin-top:10px; font-size:1.2rem; opacity:0.9;}
-    header img {margin-top:20px; height:200px; width:auto;}
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
 
-    .hero {
-      flex:1; display:flex; flex-direction:column;
-      justify-content:center; align-items:center; padding:20px; text-align:center;
-    }
+  nav a:hover {
+    color: #3ed111;
+  }
 
-    .search-box {display:flex; flex-wrap:wrap; margin-top:20px; gap:10px; justify-content:center;}
-    input, select {padding:12px; border-radius:8px; border:none; outline:none; font-size:1rem; min-width:200px;}
-    button {
-      padding:12px 20px; border:none; border-radius:8px;
-      font-size:1rem; cursor:pointer; font-weight:bold; transition:0.3s ease;
-    }
-    button.search-btn {background:#ff9800; color:#fff;}
-    button.search-btn:hover {background:#e68900;}
+  /* DROPDOWN MENU */
+  .dropdown {
+    position: relative;
+  }
 
-    .cta {margin-top:40px; display:flex; gap:20px; flex-wrap:wrap; justify-content:center;}
-    .cta a button {min-width:180px;}
-    .cta a:first-child button {background:#3ed111; color:#fff;}
-    .cta a:first-child button:hover {background:#2b9e0d;}
-    .cta a:last-child button {background:#007bff; color:#fff;}
-    .cta a:last-child button:hover {background:#0056b3;}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #222;
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    z-index: 200;
+    flex-direction: column;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+  }
 
-    footer {
-      width:100%; background:#111; color:#fff;
-      text-align:center; padding:15px 10px;
-      position:fixed; bottom:0; left:0; font-size:14px;
-    }
-  </style>
+  .dropdown-content a {
+    display: block;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+  }
+
+  .dropdown-content a:hover {
+    background: #3ed111;
+    color: #000;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 120px 20px 40px;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3ed111;
+  }
+
+  header p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  header img {
+    margin-top: 20px;
+    height: 200px;
+    width: auto;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .search-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  input, select {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    min-width: 200px;
+  }
+
+  button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+
+  button.search-btn {
+    background: #ff9800;
+    color: #fff;
+  }
+
+  button.search-btn:hover {
+    background: #e68900;
+  }
+
+  /* CALL TO ACTION BUTTONS */
+  .cta {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cta a button {
+    min-width: 180px;
+  }
+
+  .cta a:first-child button {
+    background: #3ed111;
+    color: #fff;
+  }
+
+  .cta a:first-child button:hover {
+    background: #2b9e0d;
+  }
+
+  .cta a:last-child button {
+    background: #007bff;
+    color: #fff;
+  }
+
+  .cta a:last-child button:hover {
+    background: #0056b3;
+  }
+
+  /* FOOTER */
+  footer {
+    width: 100%;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 15px 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+  }
+</style>
+
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav>
-    <div style="flex:1;"><!-- Logo/menu placeholder --></div>
-    <div style="flex:1; text-align:right;">
-      <a href="about.html">About Us</a>
-      <a href="help.html">Help Center</a>
+<nav>
+
+  <div class="nav-links">
+    <div class="dropdown">
+      <a href="#">Services ▾</a>
+      <div class="dropdown-content">
+        <a href="cleaner.html">Cleaner</a>
+        <a href="gardener.html">Gardener</a>
+        <a href="security.html">Security</a>
+        <a href="cyber-service.html">Cyber Service</a>
+        <a href="plumber.html">Plumber</a>
+        <a href="electrician.html">Electrician</a>
+        <a href="painter.html">Painter</a>
+        <a href="carpenter.html">Carpenter</a>
+        <a href="movers.html">Chef</a>
+      </div>
     </div>
-  </nav>
+
+    <a href="about.html">About Us</a>
+    <a href="help.html">Help Center</a>
+  </div>
+</nav>
+
 
   <!-- Header -->
   <header>
@@ -74,63 +243,35 @@
     <p>Find the Right Service, Anytime, Anywhere</p>
     <img src="images/Huduma1 network.png" alt="Huduma Network logo" style="height:350px; width:auto;">
   </header>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="search-box">
-      <input type="text" placeholder="What service do you need?">
-      <select>
-        <option value="">Select Category</option>
-        <option>Cleaner</option>
-        <option>Gardener</option>
-        <option>Security</option>
-        <option>Cyber Service</option>
-        <optgroup label="IT Support">
-          <option>Computer Repair</option>
-          <option>Network Setup</option>
-          <option>Software Installation</option>
-        </optgroup>
-        <option>Repair</option>
-        <option>Plumber.</option>
-        <option>Electrician</option>
-        <option>Painter</option>
-        <option>Carpenter</option>
-        <option>Welder</option>
-        <option>Chef</option>
-        <option>Tutor</option>
-        <option>Movers</option>
-        <option>Event Organizer</option>
-        <option>Business</option>
-        <optgroup label="Entertainment">
-          <option>Games</option>
-          <option>Movies</option>
-          <option>Jam Session</option>
-        </optgroup>
-        <optgroup label="Street Food">
-          <option>Drinks & Beverages</option>
-          <option>Kibandaski</option>
-          <option>Fastfood & Junk</option>
-          <option>Suggested</option>
-        </optgroup>
-        <optgroup label="Adventure">
-          <option>Hiking</option>
-          <option>Cycling</option>
-          <option>Suggested</option>
-        </optgroup>
-        <optgroup label="Games and Sports">
-          <option>Coaching</option>
-          <option>Tournaments</option>
-          <option>Teamwork</option>
-        </optgroup>
-      </select>
-      <button class="search-btn">Search</button>
-    </div>
+  <!-- Hero Section (replace existing .hero block with this) -->
+<section class="hero">
+  <div class="search-box">
+    <input id="serviceQuery" type="text" placeholder="What service do you need?">
+    <button class="search-btn" onclick="performSearch()">Search</button>
+  </div>
 
-    <!-- CTA -->
-    <div class="cta">
-      <a href="signup-user.html"><button>I Need a Service</button></a>
-      <a href="signup-provider.html"><button>I Provide a Service</button></a>
-    </div>
-  </section>
+  <!-- CTA -->
+  <div class="cta">
+    <a href="signup-user.html"><button>I Need a Service</button></a>
+    <a href="signup-provider.html"><button>I Provide a Service</button></a>
+  </div>
+</section>
+
+<script>
+  // Simple search action: redirect to search-results page with query param.
+  // Change 'search-results.html' to whichever results page or route you use.
+  function performSearch() {
+    const q = document.getElementById('serviceQuery').value.trim();
+    if (!q) {
+      alert('Please enter the service you need.');
+      return;
+    }
+    // Encode query and redirect.
+    const url = 'search-results.html?q=' + encodeURIComponent(q);
+    window.location.href = url;
+  }
+</script>
+
   
 
 </body>
