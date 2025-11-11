@@ -2,242 +2,331 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gardener Services | Huduma Network</title>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gardeners & Landscaping — Huduma Network</title>
+  <meta name="description" content="Connect with skilled gardeners, landscapers, and grounds maintenance experts for both home and commercial projects." />
   <style>
     :root {
-      --accent: #34c759;
-      --accent-dark: #2fa04b;
-      --bg-light: #f4fdf6;
-      --text-dark: #1b1f1b;
-      --text-light: #444;
+      --primary: #4caf50;
+      --secondary: #2e7d32;
+      --accent: #cddc39;
+      --text-dark: #0a0a0a;
+      --text-light: #f5f5f5;
       --card-bg: #ffffff;
-      --shadow: 0 4px 15px rgba(0,0,0,0.1);
       --radius: 12px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --max-width: 1120px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", sans-serif; }
-
+    * { box-sizing: border-box; }
     body {
-      background: var(--bg-light);
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text-dark);
-      line-height: 1.6;
+      background: linear-gradient(180deg, #f3fff4, #e8f5e9);
     }
 
     nav {
-      width: 100%;
-      background: #111;
-      padding: 12px 20px;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      z-index: 10;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
+      padding: 12px 20px;
     }
 
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    header {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/gardener-bg.jpg') center/cover no-repeat;
-      color: #fff;
-      text-align: center;
-      padding: 140px 20px 100px;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    header p {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
       font-size: 1.1rem;
-      opacity: 0.9;
+      color: var(--primary);
+      text-decoration: none;
     }
 
-    section {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 20px;
+    .brand .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
     }
 
-    .overview {
-      text-align: center;
-      margin-bottom: 60px;
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
     }
 
-    .overview h2 {
-      color: var(--accent-dark);
-      margin-bottom: 15px;
-      font-size: 1.8rem;
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text-dark);
+      opacity: 0.8;
+    }
+    .nav-links a:hover {
+      color: var(--secondary);
     }
 
-    .overview p {
-      color: var(--text-light);
-      font-size: 1rem;
-      max-width: 800px;
+    .btn {
+      border: 0;
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+    .btn.primary { background: var(--primary); color: #fff; }
+    .btn.primary:hover { background: var(--secondary); }
+    .btn.secondary {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+    .btn.secondary:hover { background: rgba(76,175,80,0.1); }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 20px;
+      max-width: var(--max-width);
       margin: 0 auto;
+      gap: 20px;
     }
 
-    .provider-grid {
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin: 0 0 10px;
+    }
+
+    .hero-text p {
+      color: #333;
+      margin: 0 0 20px;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-img {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-img img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* SERVICES */
+    .services {
+      max-width: var(--max-width);
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .services h2 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
-    .provider-card {
+    .service-card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 20px;
+      padding: 18px;
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s;
     }
 
-    .provider-card:hover {
-      transform: translateY(-5px);
+    .service-card:hover {
+      transform: translateY(-4px);
     }
 
-    .provider-card img {
+    .service-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
       border-radius: var(--radius);
-      margin-bottom: 15px;
     }
 
-    .provider-card h3 {
-      color: var(--accent-dark);
-      margin-bottom: 8px;
+    .service-card h3 {
+      color: var(--secondary);
+      margin: 12px 0 6px;
     }
 
-    .provider-card p {
+    .service-card p {
+      color: #555;
       font-size: 0.95rem;
-      color: var(--text-light);
     }
 
-    .ad-space {
-      background: #eafbea;
-      border: 2px dashed var(--accent);
-      border-radius: var(--radius);
-      padding: 30px;
+    /* AD SPACE */
+    .ad {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--text-light);
       text-align: center;
-      color: var(--text-light);
-      margin: 60px 0;
+      padding: 24px;
+      margin: 40px 0;
+      border-radius: var(--radius);
     }
 
+    .ad h3 {
+      margin: 0 0 10px;
+    }
+
+    /* CTA */
     .cta {
-  text-align: center;
-  margin: 100px 20px 60px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
+      text-align: center;
+      padding: 40px 20px;
+      background: #fff;
+      border-top: 1px solid #eee;
+    }
 
-.cta a {
-  text-decoration: none;
-  background: var(--primary);
-  color: #1a1818;
-  padding: 14px 30px;
-  border-radius: var(--radius);
-  font-weight: 600;
-  transition: all 0.3s;
-  box-shadow: 0 0 15px rgba(255,111,97,0.3);
-  display: inline-block;
-}
+    .cta h2 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
 
-.cta a:hover {
-  background: var(--secondary);
-  box-shadow: 0 0 25px rgba(255,167,38,0.5);
-  color: #000;
-}
-
-.cta span {
-  color: #999;
-  font-weight: 500;
-}
-
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
 
     footer {
-      background: #111;
-      color: #fff;
       text-align: center;
-      padding: 15px;
-      font-size: 0.9rem;
+      padding: 18px 10px;
+      color: #666;
+      font-size: 0.95rem;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 700px) {
+      .hero-text h1 { font-size: 1.7rem; }
+      .hero-img img { max-width: 100%; }
     }
   </style>
 </head>
-
 <body>
 
+  <!-- Navbar -->
   <nav>
-    <div><h2 style="color: var(--accent);">Huduma Network</h2></div>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="help.html">Help</a>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="logo"></span>
+        Huduma Network
+      </a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="help.html">Help</a>
+        <a href="signup-provider.html" class="btn secondary">Join</a>
+      </div>
     </div>
   </nav>
 
-  <header>
-    <h1>Professional Gardener Services</h1>
-    <p>Bringing life, color, and beauty to your outdoor spaces.</p>
-  </header>
-
-  <section class="overview">
-    <h2>Why Choose Our Gardeners?</h2>
-    <p>From lawn care and landscaping to irrigation and tree trimming — Huduma Network connects you with skilled, verified gardeners who take pride in their work. Your garden deserves the best, and we make sure it blossoms beautifully.</p>
-  </section>
-
-  <section class="provider-grid">
-    <div class="provider-card">
-      <img src="images/gardener1.jpg" alt="Gardener 1">
-      <h3>Green Touch Landscaping</h3>
-      <p>Expert lawn maintenance and hedge trimming services. Serving Nairobi and Kiambu.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Professional Gardeners & Landscapers</h1>
+      <p>From lush home gardens to large commercial landscapes, Huduma Network connects you with skilled gardeners who bring life, beauty, and sustainability to your space.</p>
+      <div class="hero-buttons">
+        <a href="signup-user.html" class="btn primary">Request Gardening Service</a>
+        <a href="signup-provider.html" class="btn secondary">Join as a Gardener</a>
+      </div>
     </div>
 
-    <div class="provider-card">
-      <img src="images/gardener2.jpg" alt="Gardener 2">
-      <h3>Nature Hands</h3>
-      <p>Beautiful flowerbeds and eco-friendly plant care for homes and offices.</p>
-    </div>
-
-    <div class="provider-card">
-      <img src="images/gardener3.jpg" alt="Gardener 3">
-      <h3>Urban Roots</h3>
-      <p>Modern garden design and maintenance for urban homes and balconies.</p>
+    <div class="hero-img">
+      <img src="images/gardener.jpg" alt="Gardener tending to a home garden" />
     </div>
   </section>
 
-  <div class="ad-space">
-    <p><strong>Advertise here!</strong> Promote your garden tools, fertilizer, or outdoor decor business. Contact us to book this space.</p>
+  <!-- Services -->
+  <section class="services">
+    <h2>Our Gardening & Landscaping Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <img src="images/home gardening.jpg" alt="Home gardening service" />
+        <h3>Home Gardening</h3>
+        <p>Design and maintain vibrant home gardens — from flower beds to vegetable patches and lawn care.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="images/Commercial Landscaping.jpg" alt="Commercial landscaping" />
+        <h3>Commercial Landscaping</h3>
+        <p>Professional landscaping for hotels, schools, offices, and estates — tailored for lasting beauty and easy upkeep.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="images/Lawn Care & Maintenance.jpg" alt="Lawn mowing service" />
+        <h3>Lawn Care & Maintenance</h3>
+        <p>Regular mowing, trimming, and soil care to keep your lawns healthy and perfectly groomed.</p>
+      </div>
+
+      <div class="service-card">
+        <img src="images/Tree Planting & Pruning.jpg" alt="Tree planting and pruning" />
+        <h3>Tree Planting & Pruning</h3>
+        <p>Tree care services including pruning, trimming, and replanting for healthy and safe landscapes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advertisement Section -->
+  <div class="ad">
+    <h3>Advertise Your Gardening Equipment or Nursery</h3>
+    <p>Feature your business on Huduma Network and reach clients seeking gardening tools, plants, and landscaping products.</p>
   </div>
 
-  <div class="cta">
-  <a href="signup-provider.html">Join as a gardener</a>
-  <span>or</span>
-  <a href="signup-user.html" style="background: var(--secondary); color:#000;">
-    Request Grdening Service
-  </a>
-</div>
-
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Ready to Transform Your Outdoor Space?</h2>
+    <p>Hire a professional gardener or join as a service provider today.</p>
+    <div class="cta-buttons">
+      <a href="signup-user.html" class="btn primary">Request Gardening Service</a>
+      <a href="signup-provider.html" class="btn secondary">Join as a Provider</a>
+    </div>
+  </section>
 
   <footer>
-    &copy; 2025 Huduma Network | Green solutions for a better tomorrow.
+    © 2025 Huduma Network — Connecting Gardeners & Landscapers Nationwide.
   </footer>
+
 </body>
 </html>
