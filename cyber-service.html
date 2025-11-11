@@ -2,259 +2,302 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cyber Services | Huduma Network</title>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cyber Services — Huduma Network</title>
+  <meta name="description" content="Professional cyber services — computer repair, network setup, software installation, and IT support by verified experts." />
   <style>
     :root {
-      --accent: #00ffc8;
-      --accent-dark: #00bfa6;
-      --bg-dark: #0c0f1a;
-      --bg-card: #12172a;
-      --text-light: #d8d8d8;
-      --shadow: 0 0 15px rgba(0,255,200,0.2);
-      --radius: 14px;
+      --primary: #0ff; /* Neon cyan */
+      --secondary: #7b2ff7; /* Neon purple */
+      --accent: #00c853;
+      --bg-dark: #0b0c10;
+      --card-bg: #141820;
+      --text-light: #e3f2fd;
+      --radius: 12px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      --max-width: 1120px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
+    * { box-sizing: border-box; }
     body {
-      background: var(--bg-dark);
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text-light);
-      line-height: 1.6;
+      background: radial-gradient(circle at top right, #1b2735, #090a0f);
+      overflow-x: hidden;
     }
 
+    /* NAV */
     nav {
-      width: 100%;
-      background: rgba(10,10,20,0.9);
-      padding: 15px 25px;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
+      background: rgba(10, 10, 15, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      z-index: 10;
+    }
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-      backdrop-filter: blur(6px);
+      padding: 12px 20px;
     }
-
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-      text-shadow: 0 0 8px var(--accent);
-    }
-
-    header {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('images/cyber-bg.jpg') center/cover no-repeat;
-      color: #fff;
-      text-align: center;
-      padding: 140px 20px 100px;
-      box-shadow: inset 0 0 60px rgba(0,255,200,0.1);
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-      text-shadow: 0 0 15px var(--accent);
-    }
-
-    header p {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
       font-size: 1.1rem;
-      opacity: 0.9;
+      color: var(--primary);
+      text-decoration: none;
     }
-
-    section {
-      max-width: 1100px;
-      margin: 70px auto;
-      padding: 0 20px;
+    .brand .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
     }
-
-    .overview {
-      text-align: center;
-      margin-bottom: 70px;
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
     }
-
-    .overview h2 {
-      color: var(--accent);
-      margin-bottom: 15px;
-      font-size: 1.8rem;
-      text-shadow: 0 0 10px var(--accent);
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text-light);
+      opacity: 0.8;
     }
+    .nav-links a:hover { color: var(--primary); }
 
-    .overview p {
-      color: #bbb;
-      font-size: 1rem;
-      max-width: 800px;
+    .btn {
+      border: 0;
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #000;
+    }
+    .btn.primary:hover { opacity: 0.9; }
+    .btn.secondary {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+    .btn.secondary:hover { background: rgba(0,255,255,0.08); }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 20px;
+      max-width: var(--max-width);
       margin: 0 auto;
+      gap: 20px;
     }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+    .hero-text { flex: 1; min-width: 280px; }
+    .hero-text h1 {
+      font-size: 2.3rem;
+      color: var(--primary);
+      margin-bottom: 12px;
     }
-
-    .service-card {
-      background: var(--bg-card);
+    .hero-text p {
+      color: #cfd8dc;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero-img {
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-img img {
+      width: 100%;
+      max-width: 460px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 25px;
+    }
+
+    /* SERVICES */
+    .services {
+      max-width: var(--max-width);
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .services h2 {
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 30px;
     }
-
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(0,255,200,0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 32px rgba(0,255,255,0.2);
     }
-
     .service-card img {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 15px;
-      filter: drop-shadow(0 0 8px var(--accent));
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--radius);
     }
-
     .service-card h3 {
       color: var(--accent);
-      margin-bottom: 8px;
-      font-size: 1.1rem;
+      margin: 12px 0 8px;
     }
-
     .service-card p {
-      color: #ccc;
+      color: #b0bec5;
       font-size: 0.95rem;
     }
 
-    .ad-space {
-      background: rgba(0,255,200,0.05);
-      border: 2px dashed var(--accent);
-      border-radius: var(--radius);
-      padding: 30px;
+    /* AD SPACE */
+    .ad {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: #000;
       text-align: center;
-      color: #aaa;
-      margin: 70px 0;
+      padding: 30px;
+      margin: 40px 0;
+      border-radius: var(--radius);
+      font-weight: 600;
     }
 
+    /* CTA */
     .cta {
-  text-align: center;
-  margin: 100px 20px 60px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.cta a {
-  text-decoration: none;
-  background: var(--primary);
-  color: #fff;
-  padding: 14px 30px;
-  border-radius: var(--radius);
-  font-weight: 600;
-  transition: all 0.3s;
-  box-shadow: 0 0 15px rgba(255,111,97,0.3);
-  display: inline-block;
-}
-
-.cta a:hover {
-  background: var(--secondary);
-  box-shadow: 0 0 25px rgba(255,167,38,0.5);
-  color: #000;
-}
-
-.cta span {
-  color: #999;
-  font-weight: 500;
-}
-
+      text-align: center;
+      padding: 60px 20px;
+      background: #10141b;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .cta h2 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .cta p {
+      color: #b0bec5;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
 
     footer {
-      background: #090b12;
-      color: #888;
       text-align: center;
-      padding: 15px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(0,255,200,0.2);
+      padding: 18px 10px;
+      color: #78909c;
+      font-size: 0.95rem;
+      background: #0a0d12;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 700px) {
+      .hero-text h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
-
 <body>
   <nav>
-    <div><h2 style="color: var(--accent);">Huduma Network</h2></div>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="help.html">Help</a>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="logo"></span> Huduma Network
+      </a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="help.html">Help</a>
+        <a href="signup-provider.html" class="btn secondary">Join</a>
+      </div>
     </div>
   </nav>
 
-  <header>
-    <h1>Cyber Services & IT Solutions</h1>
-    <p>Empowering your digital world — from cybersecurity to computer repair and IT support.</p>
-  </header>
-
-  <section class="overview">
-    <h2>Smart, Secure & Connected</h2>
-    <p>We bridge the gap between technology and convenience. Our cyber experts provide data protection, software repair, and network optimization to keep you secure and productive in the digital age.</p>
-  </section>
-
-  <section class="service-grid">
-    <div class="service-card">
-      <img src="images/cyber1.png" alt="Cybersecurity">
-      <h3>Cybersecurity</h3>
-      <p>Protect your systems and data with advanced threat monitoring, encryption, and security audits.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Cyber & IT Services</h1>
+      <p>From troubleshooting and repair to network setup, cybersecurity, and software installation — Huduma Network connects you with verified tech experts who keep your digital world running smoothly and securely.</p>
+      <div class="hero-buttons">
+        <a href="signup-user.html" class="btn primary">Request Tech Support</a>
+        <a href="signup-provider.html" class="btn secondary">Join as IT Expert</a>
+      </div>
     </div>
 
-    <div class="service-card">
-      <img src="images/cyber2.png" alt="Computer Repair">
-      <h3>Computer Repair</h3>
-      <p>Expert diagnostics and repairs for laptops, PCs, and peripherals — fast and affordable.</p>
-    </div>
-
-    <div class="service-card">
-      <img src="images/cyber3.png" alt="Network Setup">
-      <h3>Network Setup</h3>
-      <p>Reliable Wi-Fi, LAN, and office network configuration for smooth connectivity and productivity.</p>
-    </div>
-
-    <div class="service-card">
-      <img src="images/cyber4.png" alt="Software Support">
-      <h3>Software & Updates</h3>
-      <p>Get professional installation, troubleshooting, and licensing support for your software systems.</p>
+    <div class="hero-img">
+      <img src="https://via.placeholder.com/600x400.png?text=Cyber+Technician+Working" alt="Cyber service expert at work" />
     </div>
   </section>
 
-  <div class="ad-space">
-    <p><strong>Advertise your Tech Brand!</strong> Promote your software, devices, or tech events here. Reach thousands of digital users across Huduma Network.</p>
+  <!-- Services -->
+  <section class="services">
+    <h2>Our Cyber Solutions</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <img src="https://via.placeholder.com/400x220.png?text=Computer+Repair" alt="Computer repair" />
+        <h3>Computer Repair</h3>
+        <p>Hardware and software repairs by professionals — fast, reliable, and affordable for all device types.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://via.placeholder.com/400x220.png?text=Network+Setup" alt="Network setup" />
+        <h3>Network Setup</h3>
+        <p>Home and office internet and LAN installation with security-first configuration by certified technicians.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://via.placeholder.com/400x220.png?text=Cybersecurity" alt="Cybersecurity" />
+        <h3>Cybersecurity</h3>
+        <p>Protect your systems from threats, malware, and data breaches with professional security audits.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://via.placeholder.com/400x220.png?text=Software+Installation" alt="Software installation" />
+        <h3>Software Installation</h3>
+        <p>OS, productivity tools, and specialized software installation for individuals and businesses.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad -->
+  <div class="ad">
+    Promote your cyber café, IT shop, or remote support service on Huduma Network and reach more clients daily.
   </div>
 
-  <div class="cta">
-  <a href="signup-provider.html">Join as Digital Assistant</a>
-  <span>or</span>
-  <a href="signup-user.html" style="background: var(--secondary); color:#000;">
-    Request Cyber Service
-  </a>
-</div>
-
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Get Connected to IT Experts</h2>
+    <p>Whether you need a technician or want to offer your expertise — we help you connect and grow.</p>
+    <div class="cta-buttons">
+      <a href="signup-user.html" class="btn primary">Request Cyber Service</a>
+      <a href="signup-provider.html" class="btn secondary">Join as IT Expert</a>
+    </div>
+  </section>
 
   <footer>
-    &copy; 2025 Huduma Network | Powering Your Digital Life Securely.
+    © 2025 Huduma Network — Empowering Kenya’s Digital Workforce.
   </footer>
 </body>
 </html>
