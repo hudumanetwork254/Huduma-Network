@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Homes & Properties — Huduma Network</title>
+<meta name="description" content="Find residential homes to buy, rent or sell. Connect with verified agents, list properties and search by location, price, and features." />
+<link rel="icon" href="images/huduma-favicon.png" />
+<style>
+  :root{
+    --max-width:1120px;
+    --bg-start:#f8fbff;
+    --bg-end:#f1f8ff;
+    --brand:#42e21a;
+    --brand-dark:#1fb16a;
+    --muted:#57606a;
+    --card:#ffffff;
+    --radius:12px;
+    --shadow:0 10px 30px rgba(11,18,32,0.06);
+    --text:#06211a;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial;
+    background:linear-gradient(180deg,var(--bg-start),var(--bg-end));
+    color:var(--text);-webkit-font-smoothing:antialiased;
+  }
+
+  .container{max-width:var(--max-width);margin:0 auto;padding:20px}
+
+  /* NAV */
+  nav{position:sticky;top:0;background:rgba(255,255,255,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,0.04);z-index:90}
+  .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--brand);font-weight:800}
+  .brand .logo{width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-dark));box-shadow:0 6px 18px rgba(66,226,26,0.08)}
+  .nav-links{display:flex;gap:14px;align-items:center}
+  .nav-links a{color:var(--text);text-decoration:none;font-weight:600;opacity:0.9}
+  .nav-links a:hover{color:var(--brand-dark)}
+  .nav-cta{display:flex;gap:8px;align-items:center}
+  .btn{border:0;padding:8px 14px;border-radius:12px;font-weight:700;cursor:pointer}
+  .btn.primary{background:var(--brand);color:#06211a;box-shadow:0 6px 18px rgba(66,226,26,0.08)}
+  .btn.ghost{background:transparent;border:1px solid rgba(11,18,32,0.06);color:var(--text)}
+
+  /* HERO */
+  .hero{max-width:var(--max-width);margin:18px auto;padding:28px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(66,226,26,0.04), rgba(0,123,255,0.02));box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:center}
+  .hero-left{}
+  .eyebrow{display:inline-block;background:linear-gradient(90deg,var(--brand),var(--brand-dark));color:#02140f;padding:6px 10px;border-radius:999px;font-weight:800;font-size:0.8rem}
+  h1{font-size:1.9rem;margin:10px 0;color:#06303a}
+  p.lead{margin:0;color:var(--muted)}
+  .hero-search{margin-top:14px;display:flex;gap:10px;align-items:center;background:#fff;padding:10px;border-radius:12px;box-shadow:0 8px 20px rgba(8,15,30,0.04)}
+  .hero-search input,.hero-search select{border:0;outline:0;padding:10px;background:transparent;font-size:1rem}
+  .hero-search button{padding:10px 14px;border-radius:10px;border:0;background:var(--brand);color:#06211a;font-weight:800;cursor:pointer}
+
+  .hero-visual{display:flex;justify-content:center;align-items:center}
+  .visual-card{width:320px;border-radius:12px;background:linear-gradient(180deg,#fff,#f3fff3);padding:12px;box-shadow:var(--shadow)}
+  .visual-card img{width:100%;height:auto;border-radius:8px;display:block}
+
+  /* LAYOUT */
+  main.container{padding-top:12px}
+
+  .filters-row{display:flex;gap:12px;align-items:center;margin:18px 0;flex-wrap:wrap}
+  .filter{background:var(--card);padding:10px;border-radius:10px;box-shadow:0 6px 18px rgba(8,15,30,0.04);display:flex;gap:8px;align-items:center}
+  .filter select,.filter input{border:0;outline:0;background:transparent;padding:6px;font-size:0.95rem}
+
+  .content-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+  /* listings */
+  .listings{display:grid;gap:14px}
+  .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .card .media{height:200px;background:#eee;overflow:hidden}
+  .card .media img{width:100%;height:100%;object-fit:cover;display:block}
+  .card-body{padding:12px;display:flex;flex-direction:column;gap:8px}
+  .card h3{margin:0;font-size:1.05rem}
+  .meta{color:var(--muted);font-size:0.95rem}
+  .price{font-weight:800;color:#06211a;font-size:1.05rem}
+  .card-footer{display:flex;justify-content:space-between;align-items:center;padding:12px;border-top:1px solid rgba(0,0,0,0.04)}
+  .btn-sm{padding:8px 10px;border-radius:10px;border:0;font-weight:700;cursor:pointer;background:var(--brand);color:#06211a}
+
+  /* sidebar */
+  .sidebar{display:flex;flex-direction:column;gap:12px}
+  .panel{background:var(--card);padding:12px;border-radius:12px;box-shadow:var(--shadow)}
+  .map-placeholder{height:260px;border-radius:10px;background:linear-gradient(180deg,#e6f7e8,#f7fff9);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+
+  .agents{display:grid;grid-template-columns:1fr;gap:12px}
+  .agent{display:flex;gap:12px;align-items:center}
+  .agent img{width:72px;height:72px;border-radius:8px;object-fit:cover}
+
+  /* ad */
+  .ad{padding:12px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#02140f;display:flex;justify-content:space-between;align-items:center}
+
+  /* pager */
+  .pager{display:flex;gap:8px;justify-content:center;margin-top:8px}
+  .page-btn{padding:8px 12px;border-radius:10px;border:0;background:#fff;box-shadow:0 6px 18px rgba(8,15,30,0.04);cursor:pointer}
+
+  /* responsive */
+  @media(max-width:980px){
+    .hero{grid-template-columns:1fr}
+    .content-grid{grid-template-columns:1fr}
+    .visual-card{width:100%}
+  }
+  @media(max-width:640px){
+    .nav-links{display:none}
+    h1{font-size:1.4rem}
+  }
+</style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner container">
+      <a class="brand" href="index.html"><span class="logo" aria-hidden="true"></span>Huduma Network</a>
+      <div class="nav-links" role="navigation">
+        <a href="about.html">About</a>
+        <a href="help.html">Help</a>
+        <a href="fresh-farm.html">Fresh Farm</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn ghost" href="signup-provider.html">Join as Agent</a>
+        <a class="btn primary" href="signup-user.html">Find a Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container" aria-labelledby="homes-hero">
+    <div>
+      <span class="eyebrow">HOMES & PROPERTIES</span>
+      <h1 id="homes-hero">Find homes to buy, rent or sell — nationwide listings & verified agents</h1>
+      <p class="lead">Search by location, price, property type, and features. List your property or connect with a verified agent to reach buyers and renters across the network.</p>
+
+      <div class="hero-search" role="search" aria-label="Quick property search">
+        <input id="q" type="search" placeholder="City, neighbourhood or property ID (e.g. Nairobi, Kilimani)">
+        <select id="type">
+          <option value="">Any type</option>
+          <option>House</option>
+          <option>Apartment</option>
+          <option>Plot</option>
+          <option>Commercial</option>
+        </select>
+        <select id="purpose">
+          <option value="">Buy / Rent</option>
+          <option value="buy">Buy</option>
+          <option value="rent">Rent</option>
+        </select>
+        <button id="searchBtn">Search</button>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="visual-card">
+        <!-- replace with real image or small carousel/gif -->
+        <img src="images/property-hero.jpg" alt="Homes and properties (placeholder)">
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container" id="main">
+    <!-- filters -->
+    <div class="filters-row" role="region" aria-label="Property filters">
+      <div class="filter">
+        <label for="beds" style="font-weight:700;color:var(--muted)">Beds</label>
+        <select id="beds">
+          <option value="">Any</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+        </select>
+      </div>
+
+      <div class="filter">
+        <label for="priceMin" style="font-weight:700;color:var(--muted)">Min</label>
+        <input id="priceMin" type="number" placeholder="KSh min" />
+      </div>
+
+      <div class="filter">
+        <label for="priceMax" style="font-weight:700;color:var(--muted)">Max</label>
+        <input id="priceMax" type="number" placeholder="KSh max" />
+      </div>
+
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <button id="clearFilters" class="btn ghost">Clear</button>
+        <button id="applyFilters" class="btn primary">Apply</button>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <!-- listings column -->
+      <section class="listings" aria-labelledby="listings-title">
+        <h2 id="listings-title">Latest Listings</h2>
+
+        <!-- Listing cards (will be generated by JS) -->
+        <div id="listingsGrid"></div>
+
+        <div class="pager" id="pager"></div>
+      </section>
+
+      <!-- sidebar -->
+      <aside class="sidebar" aria-labelledby="sidebar-title">
+        <div class="panel">
+          <small>Need advice?</small>
+          <h3 id="sidebar-title">Talk with a certified agent</h3>
+          <p style="color:var(--muted)">Our agents can help you price, list and close deals faster. Trusted & verified profiles across the country.</p>
+          <a class="btn primary" href="signup-provider.html">Get an Agent</a>
+        </div>
+
+        <div class="panel">
+          <small>Map</small>
+          <div class="map-placeholder" id="map">Map placeholder — add map here</div>
+        </div>
+
+        <div class="panel">
+          <small>Featured Agents</small>
+          <div class="agents" id="agentsList">
+            <!-- filled by JS -->
+          </div>
+        </div>
+
+        <div class="ad">
+          <div>Advertise mortgages, insurance or furniture here.</div>
+          <div><a class="btn ghost" href="contact.html">Contact Sales</a></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- SELL/AGENT CTA -->
+    <section class="panel" style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div>
+        <h3 style="margin:0">Sell or Rent your property</h3>
+        <p style="margin:6px 0;color:var(--muted)">List your home and get matched with buyers and renters across Huduma Network.</p>
+      </div>
+      <div style="display:flex;gap:8px">
+        <a class="btn ghost" href="list-property.html">List Property</a>
+        <a class="btn primary" href="signup-provider.html">Join as Agent</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="margin-top:32px;padding:18px 8px;text-align:center;color:var(--muted)">
+    <div class="container">
+      <div style="display:flex;gap:8px;align-items:center;justify-content:center"><img src="images/Huduma1 network.png" alt="Huduma" style="height:34px"><div style="font-weight:700">Huduma Network</div></div>
+      <div style="margin-top:8px">© 2025 Huduma Network — Find homes & trusted agents nationwide.</div>
+    </div>
+  </footer>
+
+<script>
+/* ---------- Sample static data for demo. Replace with real API calls ---------- */
+const sampleListings = [
+  { id: 'H001', title: '3BR Family Home — Kilimani', type:'House', purpose:'buy', beds:3, price:7500000, location:'Kilimani, Nairobi', img:'images/house1.jpg', area:'Kilimani', agent:'Evelyn Estates' },
+  { id: 'H002', title: '2BR Apartment — Westlands', type:'Apartment', purpose:'rent', beds:2, price:45000, location:'Westlands, Nairobi', img:'images/apt1.jpg', area:'Westlands', agent:'PrimeRent' },
+  { id: 'H003', title: 'Plot 0.5 Acre — Kiambu', type:'Plot', purpose:'buy', beds:0, price:1200000, location:'Kiambu Town', img:'images/plot1.jpg', area:'Kiambu', agent:'LandPro' },
+  { id: 'H004', title: '4BR Modern House — Runda', type:'House', purpose:'buy', beds:4, price:19500000, location:'Runda, Nairobi', img:'images/house2.jpg', area:'Runda', agent:'Mugoya Realty' },
+  { id: 'H005', title: 'Studio Apartment — CBD', type:'Apartment', purpose:'rent', beds:0, price:30000, location:'CBD, Nairobi', img:'images/apt2.jpg', area:'CBD', agent:'CityStay' }
+];
+
+const sampleAgents = [
+  { name:'Evelyn Estates', img:'images/agent1.jpg', phone:'+254700111222', region:'Nairobi' },
+  { name:'Mugoya Realty', img:'images/agent2.jpg', phone:'+254700333444', region:'Nairobi' },
+  { name:'LandPro', img:'images/agent3.jpg', phone:'+254700555666', region:'Kiambu' }
+];
+
+/* ---------- Render functions ---------- */
+const listingsGrid = document.getElementById('listingsGrid');
+const pagerEl = document.getElementById('pager');
+const agentsList = document.getElementById('agentsList');
+
+let currentPage = 1;
+const pageSize = 4;
+let filtered = sampleListings.slice();
+
+function formatPrice(v, purpose){
+  if(!v) return 'Contact';
+  // show KSh for Kenya. Adjust as needed.
+  if(purpose === 'rent') return 'KSh ' + v.toLocaleString() + ' /mo';
+  return 'KSh ' + v.toLocaleString();
+}
+
+function renderListings(page=1){
+  listingsGrid.innerHTML = '';
+  const start = (page-1)*pageSize;
+  const pageItems = filtered.slice(start, start+pageSize);
+  if(pageItems.length === 0){
+    listingsGrid.innerHTML = '<div class="panel">No listings found. Try widening your search or clear filters.</div>';
+    pagerEl.innerHTML = '';
+    return;
+  }
+
+  pageItems.forEach(list => {
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="media"><img src="${list.img}" alt="${list.title}"></div>
+      <div class="card-body">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3>${list.title}</h3>
+          <div class="price">${formatPrice(list.price, list.purpose)}</div>
+        </div>
+        <div class="meta">${list.type} • ${list.location} • ${list.beds} bed(s)</div>
+        <p style="margin:8px 0;color:var(--muted)">Agent: ${list.agent}</p>
+      </div>
+      <div class="card-footer">
+        <a class="btn-sm" href="property.html?id=${list.id}">View</a>
+        <div style="color:var(--muted);font-weight:700">${list.id}</div>
+      </div>
+    `;
+    listingsGrid.appendChild(card);
+  });
+
+  // pager
+  const totalPages = Math.ceil(filtered.length / pageSize);
+  pagerEl.innerHTML = '';
+  for(let i=1;i<=totalPages;i++){
+    const b = document.createElement('button');
+    b.className = 'page-btn';
+    b.textContent = i;
+    if(i===page) b.style.fontWeight='800';
+    b.addEventListener('click', ()=>{ currentPage=i; renderListings(i); });
+    pagerEl.appendChild(b);
+  }
+}
+
+function renderAgents(){
+  agentsList.innerHTML = '';
+  sampleAgents.forEach(a=>{
+    const el = document.createElement('div');
+    el.className='agent';
+    el.innerHTML = `<img src="${a.img}" alt="${a.name}"> <div><div style="font-weight:800">${a.name}</div><div style="color:var(--muted)">${a.region} • ${a.phone}</div></div>`;
+    agentsList.appendChild(el);
+  });
+}
+
+/* ---------- Filter / Search logic ---------- */
+function applyFilters(){
+  const q = (document.getElementById('q').value || '').toLowerCase();
+  const type = document.getElementById('type').value;
+  const purpose = document.getElementById('purpose').value;
+  const beds = document.getElementById('beds').value;
+  const min = Number(document.getElementById('priceMin').value || 0);
+  const max = Number(document.getElementById('priceMax').value || 0);
+
+  filtered = sampleListings.filter(l=>{
+    if(type && l.type !== type) return false;
+    if(purpose && l.purpose !== purpose) return false;
+    if(beds && l.beds < Number(beds)) return false;
+    if(min && l.price < min) return false;
+    if(max && max>0 && l.price > max) return false;
+    if(q){
+      return (l.title + ' ' + l.location + ' ' + l.area + ' ' + l.agent).toLowerCase().includes(q);
+    }
+    return true;
+  });
+
+  currentPage = 1;
+  renderListings(currentPage);
+}
+
+/* ---------- Events ---------- */
+document.getElementById('applyFilters').addEventListener('click', applyFilters);
+document.getElementById('clearFilters').addEventListener('click', ()=>{
+  document.getElementById('q').value='';
+  document.getElementById('type').value='';
+  document.getElementById('purpose').value='';
+  document.getElementById('beds').value='';
+  document.getElementById('priceMin').value='';
+  document.getElementById('priceMax').value='';
+  filtered = sampleListings.slice();
+  currentPage=1; renderListings(currentPage);
+});
+
+document.getElementById('searchBtn').addEventListener('click', applyFilters);
+document.getElementById('q').addEventListener('keydown', (e)=>{ if(e.key==='Enter') applyFilters(); });
+
+/* ---------- initialize ---------- */
+renderAgents();
+renderListings(currentPage);
+</script>
+</body>
+</html>
